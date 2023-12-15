@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import createCategoryController from './controllers/category/createCategoryController'
 import AuthUserController from './controllers/user/AuthUserController'
 import CreateUserController from './controllers/user/CreateUserController'
 import DetailUserController from './controllers/user/DetailUserController'
@@ -9,5 +10,7 @@ const router = Router()
 router.post('/users', CreateUserController.handle)
 router.post('/users/session', AuthUserController.handle)
 router.get('/users/me', isAuthenticated, DetailUserController.handle)
+
+router.post('/categories', isAuthenticated, createCategoryController.handle)
 
 export default router
