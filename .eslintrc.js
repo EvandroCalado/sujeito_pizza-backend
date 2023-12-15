@@ -26,5 +26,7 @@ module.exports = {
       "@typescript-eslint/no-misused-promises": "off",
       "@typescript-eslint/unbound-method": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/naming-convention": "off"
     }
 }
