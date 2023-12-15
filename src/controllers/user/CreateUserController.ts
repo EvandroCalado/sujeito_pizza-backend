@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express'
 import CreateUserService from '../../services/user/CreateUserService'
 
-class CreateUserController {
+export default {
   async handle (req: Request, res: Response) {
     const { name, email, password } = req.body
 
@@ -10,5 +10,3 @@ class CreateUserController {
     return res.json(user)
   }
 }
-
-export default new CreateUserController()
