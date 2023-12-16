@@ -1,17 +1,18 @@
-import { type Request, type Response } from 'express'
-import listByCategoryService from '../../services/product/listByCategoryService'
+import { type Request, type Response } from 'express';
+import listByCategoryService from '../../services/product/listByCategoryService';
 
 export default {
-  async handle (req: Request, res: Response) {
-    const category_id = req.query.category_id as string
+  async handle(req: Request, res: Response) {
+    const category_id = req.query.category_id as string;
 
-    const productsByCategory = await listByCategoryService.execute({ category_id })
+    const productsByCategory = await listByCategoryService.execute({
+      category_id,
+    });
 
     if (productsByCategory.length === 0) {
-      throw new Error('Category empty')
+      throw new Error('Category empty');
     }
 
-    return res.json(productsByCategory)
-  }
-
-}
+    return res.json(productsByCategory);
+  },
+};

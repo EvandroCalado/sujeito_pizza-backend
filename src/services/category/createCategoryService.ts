@@ -1,25 +1,25 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../prisma';
 
 interface CategoryRequest {
-  name: string
+  name: string;
 }
 
 export default {
-  async execute ({ name }: CategoryRequest) {
+  async execute({ name }: CategoryRequest) {
     if (!name) {
-      throw new Error('Name invalid')
+      throw new Error('Name invalid');
     }
 
     const category = await prismaClient.category.create({
       data: {
-        name
+        name,
       },
       select: {
         id: true,
-        name: true
-      }
-    })
+        name: true,
+      },
+    });
 
-    return category
-  }
-}
+    return category;
+  },
+};

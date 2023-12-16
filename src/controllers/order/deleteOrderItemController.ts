@@ -1,12 +1,12 @@
-import { type Request, type Response } from 'express'
-import deleteOrderItemService from '../../services/order/deleteOrderItemService'
+import { type Request, type Response } from 'express';
+import deleteOrderItemService from '../../services/order/deleteOrderItemService';
 
 export default {
-  async handle (req: Request, res: Response) {
-    const orderItem_id = req.query.orderItem_id as string
+  async handle(req: Request, res: Response) {
+    const orderItem_id = req.query.orderItem_id as string;
 
-    const orderItem = await deleteOrderItemService.execute({ orderItem_id })
+    const orderItem = await deleteOrderItemService.execute({ orderItem_id });
 
-    return res.json(orderItem)
-  }
-}
+    return res.json(orderItem);
+  },
+};

@@ -1,12 +1,12 @@
-import { type Request, type Response } from 'express'
-import AuthUserService from '../../services/user/AuthUserService'
+import { type Request, type Response } from 'express';
+import AuthUserService from '../../services/user/AuthUserService';
 
 export default {
-  async handle (req: Request, res: Response) {
-    const { email, password } = req.body
+  async handle(req: Request, res: Response) {
+    const { email, password } = req.body;
 
-    const auth = await AuthUserService.execute({ email, password })
+    const auth = await AuthUserService.execute({ email, password });
 
-    return res.json(auth)
-  }
-}
+    return res.json(auth);
+  },
+};

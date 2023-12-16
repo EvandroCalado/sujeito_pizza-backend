@@ -1,17 +1,17 @@
-import prismaClient from '../../prisma'
+import prismaClient from '../../prisma';
 
 interface OrderRequest {
-  order_id: string
+  order_id: string;
 }
 
 export default {
-  async execute ({ order_id }: OrderRequest) {
+  async execute({ order_id }: OrderRequest) {
     const order = await prismaClient.order.delete({
       where: {
-        id: order_id
-      }
-    })
+        id: order_id,
+      },
+    });
 
-    return order
-  }
-}
+    return order;
+  },
+};
