@@ -3,6 +3,7 @@ import multer from 'multer'
 import multerConfig from './config/multer'
 import createCategoryController from './controllers/category/createCategoryController'
 import listCategoryController from './controllers/category/listCategoryController'
+import addOrderItemController from './controllers/order/addOrderItemController'
 import createOrderController from './controllers/order/createOrderController'
 import deleteOrderController from './controllers/order/deleteOrderController'
 import createProductController from './controllers/product/createProductController'
@@ -26,6 +27,7 @@ router.get('/products', isAuthenticated, listByCategoryController.handle)
 router.post('/products', isAuthenticated, upload.single('file'), createProductController.handle)
 
 router.post('/orders', isAuthenticated, createOrderController.handle)
+router.post('/orders/items', isAuthenticated, addOrderItemController.handle)
 router.delete('/orders', isAuthenticated, deleteOrderController.handle)
 
 export default router
