@@ -1,6 +1,7 @@
 import cors from 'cors'
 import express, { type NextFunction, type Request, type Response } from 'express'
 import 'express-async-errors'
+import { resolve } from 'path'
 import router from './routes'
 
 const port = 3333
@@ -11,6 +12,8 @@ app.use(express.json())
 app.use(cors())
 
 app.use(router)
+
+app.use('/files', express.static(resolve(__dirname, '..', 'tmp')))
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   if (error instanceof Error) {
