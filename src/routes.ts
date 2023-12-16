@@ -6,6 +6,7 @@ import listCategoryController from './controllers/category/listCategoryControlle
 import addOrderItemController from './controllers/order/addOrderItemController'
 import createOrderController from './controllers/order/createOrderController'
 import deleteOrderController from './controllers/order/deleteOrderController'
+import deleteOrderItemController from './controllers/order/deleteOrderItemController'
 import createProductController from './controllers/product/createProductController'
 import listByCategoryController from './controllers/product/listByCategoryController'
 import AuthUserController from './controllers/user/AuthUserController'
@@ -29,5 +30,6 @@ router.post('/products', isAuthenticated, upload.single('file'), createProductCo
 router.post('/orders', isAuthenticated, createOrderController.handle)
 router.post('/orders/items', isAuthenticated, addOrderItemController.handle)
 router.delete('/orders', isAuthenticated, deleteOrderController.handle)
+router.delete('/orders/items', isAuthenticated, deleteOrderItemController.handle)
 
 export default router
