@@ -12,7 +12,7 @@ export default {
       },
       include: {
         product: true,
-        Order: true,
+        order: true,
       },
     });
 
