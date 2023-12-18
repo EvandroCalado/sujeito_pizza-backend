@@ -7,6 +7,7 @@ import AddOrderItemController from './controllers/order/AddOrderItemController';
 import CreateOrderController from './controllers/order/CreateOrderController';
 import DeleteOrderController from './controllers/order/DeleteOrderController';
 import DeleteOrderItemController from './controllers/order/DeleteOrderItemController';
+import DetailOrderController from './controllers/order/DetailOrderController';
 import ListOrderController from './controllers/order/ListOrderController';
 import SendOrderController from './controllers/order/SendOrderController';
 import CreateProductController from './controllers/product/CreateProductController';
@@ -35,6 +36,7 @@ router.post(
 );
 
 router.get('/orders', isAuthenticated, ListOrderController.handle);
+router.get('/orders/detail', isAuthenticated, DetailOrderController.handle);
 router.post('/orders', isAuthenticated, CreateOrderController.handle);
 router.post('/orders/items', isAuthenticated, AddOrderItemController.handle);
 router.put('/orders/send', isAuthenticated, SendOrderController.handle);
