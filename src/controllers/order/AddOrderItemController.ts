@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import addOrderItemService from '../../services/order/addOrderItemService';
+import addOrderItemService from '../../services/order/AddOrderItemService';
 
 export default {
   async handle(req: Request, res: Response) {

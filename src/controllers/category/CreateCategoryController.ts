@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import createCategoryService from '../../services/category/createCategoryService';
+import createCategoryService from '../../services/category/CreateCategoryService';
 
 export default {
   async handle(req: Request, res: Response) {

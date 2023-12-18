@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import listByCategoryService from '../../services/product/listByCategoryService';
+import listByCategoryService from '../../services/product/ListByCategoryService';
 
 export default {
   async handle(req: Request, res: Response) {

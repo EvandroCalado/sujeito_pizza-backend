@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express';
 import prismaClient from '../../prisma';
-import createOrderService from '../../services/order/createOrderService';
+import createOrderService from '../../services/order/CreateOrderService';
 
 export default {
   async handle(req: Request, res: Response) {
