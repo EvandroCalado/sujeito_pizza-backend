@@ -1,14 +1,15 @@
 import { Router } from 'express';
 import multer from 'multer';
 import multerConfig from './config/multer';
-import createCategoryController from './controllers/category/createCategoryController';
-import listCategoryController from './controllers/category/listCategoryController';
-import addOrderItemController from './controllers/order/addOrderItemController';
-import createOrderController from './controllers/order/createOrderController';
-import deleteOrderController from './controllers/order/deleteOrderController';
-import deleteOrderItemController from './controllers/order/deleteOrderItemController';
-import createProductController from './controllers/product/createProductController';
-import listByCategoryController from './controllers/product/listByCategoryController';
+import CreateCategoryController from './controllers/category/CreateCategoryController';
+import ListCategoryController from './controllers/category/ListCategoryController';
+import AddOrderItemController from './controllers/order/AddOrderItemController';
+import CreateOrderController from './controllers/order/CreateOrderController';
+import DeleteOrderController from './controllers/order/DeleteOrderController';
+import DeleteOrderItemController from './controllers/order/DeleteOrderItemController';
+import SendOrderController from './controllers/order/SendOrderController';
+import CreateProductController from './controllers/product/CreateProductController';
+import ListByCategoryController from './controllers/product/ListByCategoryController';
 import AuthUserController from './controllers/user/AuthUserController';
 import CreateUserController from './controllers/user/CreateUserController';
 import DetailUserController from './controllers/user/DetailUserController';
@@ -21,24 +22,25 @@ router.get('/users/me', isAuthenticated, DetailUserController.handle);
 router.post('/users', CreateUserController.handle);
 router.post('/users/session', AuthUserController.handle);
 
-router.get('/categories', isAuthenticated, listCategoryController.handle);
-router.post('/categories', isAuthenticated, createCategoryController.handle);
+router.get('/categories', isAuthenticated, ListCategoryController.handle);
+router.post('/categories', isAuthenticated, CreateCategoryController.handle);
 
-router.get('/products', isAuthenticated, listByCategoryController.handle);
+router.get('/products', isAuthenticated, ListByCategoryController.handle);
 router.post(
   '/products',
   isAuthenticated,
   upload.single('file'),
-  createProductController.handle,
+  CreateProductController.handle,
 );
 
-router.post('/orders', isAuthenticated, createOrderController.handle);
-router.post('/orders/items', isAuthenticated, addOrderItemController.handle);
-router.delete('/orders', isAuthenticated, deleteOrderController.handle);
+router.post('/orders', isAuthenticated, CreateOrderController.handle);
+router.post('/orders/items', isAuthenticated, AddOrderItemController.handle);
+router.put('/orders/send', isAuthenticated, SendOrderController.handle);
+router.delete('/orders', isAuthenticated, DeleteOrderController.handle);
 router.delete(
   '/orders/items',
   isAuthenticated,
-  deleteOrderItemController.handle,
+  DeleteOrderItemController.handle,
 );
 
 export default router;
